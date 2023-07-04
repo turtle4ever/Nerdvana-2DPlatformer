@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,14 +113,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 018542f977b426d4599e914135f2bd52
-      internalID: 1026325957
+      spriteID: a206a7bf0388eb74eb426f1bce80dd7c
+      internalID: -712667480
       vertices: []
       indices: 
       edges: []
@@ -134,14 +134,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bd31de78451a9145a80d1d7e1f442bf
-      internalID: -713345404
+      spriteID: bcfd8f0587e6b7c44a06a276fb58bbed
+      internalID: -1441922148
       vertices: []
       indices: 
       edges: []
@@ -155,14 +155,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50bf36b563757044081bba8702951832
-      internalID: -1472742993
+      spriteID: 3171219c5bd174e47a80bee33931e534
+      internalID: -1992679094
       vertices: []
       indices: 
       edges: []
@@ -176,14 +176,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 776200ae0f306a043bf2ac370c6b005c
-      internalID: -1968655268
+      spriteID: ca41852ca5fccd844b528529554de679
+      internalID: -1877772281
       vertices: []
       indices: 
       edges: []
@@ -197,14 +197,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8d948ae6155b8943b007dee6750038b
-      internalID: -874111476
+      spriteID: 4c64c00046b064046b1ba96fd9898b1f
+      internalID: 184072243
       vertices: []
       indices: 
       edges: []
@@ -218,14 +218,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5464db1987dc6de4e8d6939495fe6095
-      internalID: 155984886
+      spriteID: bab51c5ec216b134fa550415f76b62bc
+      internalID: 1891778071
       vertices: []
       indices: 
       edges: []
@@ -239,14 +239,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a0c52eaa97915141adc29b74908e969
-      internalID: 87900693
+      spriteID: ef50fe0cf8290a6418acc25151231a29
+      internalID: 1035378769
       vertices: []
       indices: 
       edges: []
@@ -260,14 +260,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46b114987e8d8a74c9519a5a56d34b4d
-      internalID: -872066518
+      spriteID: 0bb4284db5c4b5f408f81a3e9b4533e5
+      internalID: 877397722
       vertices: []
       indices: 
       edges: []
@@ -281,14 +281,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1117a75a94d28024d9f21ba954f49a23
-      internalID: -1423827968
+      spriteID: 97ca0ca8ab683c944803dac9ff632517
+      internalID: 1213568468
       vertices: []
       indices: 
       edges: []
@@ -297,22 +297,22 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WhatsApp Image 2023-07-04 at 10.34.59_0: 1026325957
-      WhatsApp Image 2023-07-04 at 10.34.59_1: -713345404
-      WhatsApp Image 2023-07-04 at 10.34.59_2: -1472742993
-      WhatsApp Image 2023-07-04 at 10.34.59_3: -1968655268
-      WhatsApp Image 2023-07-04 at 10.34.59_4: -874111476
-      WhatsApp Image 2023-07-04 at 10.34.59_5: 155984886
-      WhatsApp Image 2023-07-04 at 10.34.59_6: 87900693
-      WhatsApp Image 2023-07-04 at 10.34.59_7: -872066518
-      WhatsApp Image 2023-07-04 at 10.34.59_8: -1423827968
+      WhatsApp Image 2023-07-04 at 10.34.59_0: -712667480
+      WhatsApp Image 2023-07-04 at 10.34.59_1: -1441922148
+      WhatsApp Image 2023-07-04 at 10.34.59_2: -1992679094
+      WhatsApp Image 2023-07-04 at 10.34.59_3: -1877772281
+      WhatsApp Image 2023-07-04 at 10.34.59_4: 184072243
+      WhatsApp Image 2023-07-04 at 10.34.59_5: 1891778071
+      WhatsApp Image 2023-07-04 at 10.34.59_6: 1035378769
+      WhatsApp Image 2023-07-04 at 10.34.59_7: 877397722
+      WhatsApp Image 2023-07-04 at 10.34.59_8: 1213568468
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
