@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 184072243, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: 1891778071, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: 1035378769, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: 877397722, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: -712667480, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: -1441922148, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: -1992679094, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: -1877772281, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  - {fileID: 1213568468, guid: 8370caf8859853f44a165d381ac3ddca, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - WhatsApp Image 2023-07-04 at 10.34.59_4
+  - WhatsApp Image 2023-07-04 at 10.34.59_5
+  - WhatsApp Image 2023-07-04 at 10.34.59_6
+  - WhatsApp Image 2023-07-04 at 10.34.59_7
+  - WhatsApp Image 2023-07-04 at 10.34.59_0
+  - WhatsApp Image 2023-07-04 at 10.34.59_1
+  - WhatsApp Image 2023-07-04 at 10.34.59_2
+  - WhatsApp Image 2023-07-04 at 10.34.59_3
+  - WhatsApp Image 2023-07-04 at 10.34.59_8
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0
