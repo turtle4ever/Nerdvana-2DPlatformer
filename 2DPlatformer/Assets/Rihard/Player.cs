@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using static Unity.Burst.Intrinsics.X86;
@@ -8,35 +10,14 @@ public class Player : MonoBehaviour
 {
     // Start is called before the first frame update
     int flag=0;
-    public float speed=0f;
-    //public float Dspeed=100f;
-    public float Aspeed_before_move=-100f;
-    public float Dspeed_before_move=100f;
-    public float gravity=3f;
-    public float jump=-10f;
-    int curjump=1;
-    float falling=0f;
-    public float fallingin=1f;
-    public GameObject player;
-    public float acceleration = 100f;
-    public float AspeedCap = -400f;
-    public float DspeedCap = 400f;
+    int jump = 0;
+    public LayerMask groundmask;
+    public GameObject playerfootleft;
+    public GameObject playerfootright;
     public Rigidbody2D playermove;
     void Start()
     {
         
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
-        gravity = 0f;
-        falling = 0f;
-        curjump = 1;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        curjump = 0;
-        falling = fallingin;
     }
     // Update is called once per frame
     void Update()
@@ -57,94 +38,149 @@ public class Player : MonoBehaviour
         {
             flag = 0;
         }
-       /* if (flag == 1)
+        if(Input.GetKeyDown(KeyCode.Space)) 
         {
-
-            if (lrspeed + Time.deltaTime * acceleration < speedCap)
-            {
-                lrspeed += (Time.deltaTime * acceleration);
-            }
-            else
-            {
-                lrspeed = speedCap;
-            }
-            playermove.velocity = new Vector2(0f, 0f);
-            playermove.AddForce(new Vector2(Time.deltaTime * -lrspeed, 0f));
-        }
-        if (flag == 2)
+            jump = 1;
+        }      
+        if(Input.GetKeyUp(KeyCode.Space)) 
         {
-            playermove.velocity = new Vector2(0f,0f);
-            playermove.AddForce(new Vector2(Time.deltaTime * lrspeed, 0f));
+            jump = 0;
         }
-      /*  if(Input.GetKeyDown(KeyCode.Space) && curjump==1)
-        {
-            gravity = jump;
-        }
-        gravity = gravity - Time.deltaTime * falling;
-        player.transform.position += new Vector3(0f, Time.deltaTime * gravity, 0f); */
-
     }
-   // float auxspeed=0f;
+    public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f;
+    int prevflag=0;
+
+    public float jump_f=10f,grav=3f;
+    int isground = 0;
     private void FixedUpdate()
     {
-        Debug.Log(speed + "asdjab");
-        if (flag == 1)
+        isground = 0;
+        Vector2 first_ray = playerfootleft.transform.position;
+        Vector2 last_ray = playerfootright.transform.position;
+        for (float i = first_ray.x; i < last_ray.x; i += 0.05f)
         {
-
-            if (speed - Time.fixedDeltaTime * acceleration > AspeedCap)
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1,groundmask);
+            Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green,100f);
+            if (Mathf.Abs(hit.point.y - first_ray.y) < 0.2)
             {
-                speed -= (Time.fixedDeltaTime * acceleration);
+                isground = 1;
             }
-            else
-            {
-                speed = AspeedCap;
-            }
-            Debug.Log(speed);
-            playermove.velocity = new Vector2(0f, playermove.velocity.y);
-            playermove.AddForce(new Vector2(speed, 0f));
         }
-        if(speed > Dspeed_before_move && flag!=2)
+        if (isground == 1)
         {
-            if (speed - Time.fixedDeltaTime * acceleration > Dspeed_before_move)
-            {
-                speed -= (Time.fixedDeltaTime * acceleration);
-                playermove.velocity = new Vector2(0f, playermove.velocity.y);
-                playermove.AddForce(new Vector2(speed, 0f));
-            }
-            else
-            {
-                speed = Dspeed_before_move;
-                playermove.velocity = new Vector2(0f, playermove.velocity.y);
-            }
-        }//////////////////////////////////////////////////////////////////movement part one ending
-        if (flag == 2)
-        {
-            if (speed + Time.fixedDeltaTime * acceleration < DspeedCap)
-            {
-                speed += (Time.fixedDeltaTime * acceleration);
-            }
-            else
-            {
-                Debug.Log("cap");
-                speed = DspeedCap;
-            }
-            Debug.Log(speed);
-            playermove.velocity = new Vector2(0f, playermove.velocity.y);
-            playermove.AddForce(new Vector2(speed, 0f));
+            Debug.Log("it is indeed on ground");
+            playermove.gravityScale = 0;
         }
-        if(speed < Aspeed_before_move && flag!=1)
+        else
         {
-            if (speed + Time.fixedDeltaTime * acceleration < Aspeed_before_move)
+            Debug.Log("nuh-uh on ground");
+            playermove.gravityScale = grav;
+        }
+        if (jump==1 && isground==1)
+        {
+            Debug.Log("jump");
+            playermove.AddForce(new Vector2(0, jump_f));
+           // playermove.gravityScale = grav;
+        }
+        ////////////////////////////////////////////////////////////////////////////////////////////////////Movement left right
+        if(flag==0)
+        {
+            if (prevflag == 1)
             {
-                speed += (Time.fixedDeltaTime * acceleration);
-                playermove.velocity = new Vector2(0f, playermove.velocity.y);
-                playermove.AddForce(new Vector2(speed, 0f));
+                if (curspeedA < inspeedA)
+                {
+                    curspeedA += acc * 2f;
+                    playermove.velocity = new Vector2(curspeedA - inspeedA, playermove.velocity.y);
+                }
+                else
+                {
+                    curspeedA = inspeedA-0.1f;
+                    playermove.velocity = new Vector2(0, playermove.velocity.y);
+                    prevflag = 0;
+                }
+                Debug.Log(curspeedA);
             }
-            else
+            if(prevflag == 2) 
             {
-                speed = Aspeed_before_move;
-                playermove.velocity = new Vector2(0f, playermove.velocity.y);
+                if (curspeedD > inspeedD)
+                {
+                    curspeedD -= acc * 2f;
+                    playermove.velocity = new Vector2(curspeedD - inspeedD, playermove.velocity.y);
+                }
+                else
+                {
+                    curspeedD = inspeedD + 0.1f;
+                    playermove.velocity = new Vector2(0, playermove.velocity.y);
+                    prevflag = 0;
+                }
             }
-        }//////////////////////////////////////////////////////////////////movement part 2 ending
+        }
+        if(flag==1)
+        {
+            if(prevflag==0)
+            {
+                prevflag = 1;
+            }
+            if (prevflag == 1)
+            {
+                if (curspeedA < inspeedA)
+                {
+                    curspeedA -= acc;
+                }
+                Debug.Log(curspeedA + " 1");
+              //  playermove.velocity = new Vector2(curspeedA - inspeedA, playermove.velocity.y);
+            }
+            if (prevflag == 2)
+            {
+                if (curspeedD > inspeedD)
+                {
+                    curspeedD -= acc * 2f;
+                    playermove.velocity = new Vector2(curspeedD - inspeedD, playermove.velocity.y);
+                }
+                else
+                {
+                    curspeedD = inspeedD + 0.1f;
+                    playermove.velocity = new Vector2(0, playermove.velocity.y);
+                    prevflag = 1;
+                }
+                Debug.Log(curspeedD + " 1 2");
+            }
+            playermove.velocity=new Vector2(curspeedA, playermove.velocity.y);
+        }
+        if(flag==2)
+        {
+            if (prevflag == 0)
+            {
+                prevflag = 2;
+            }
+            if (prevflag == 2)
+            {
+                if (curspeedD > inspeedD)
+                {
+                    curspeedD += acc;
+                }
+                Debug.Log(curspeedD + " 2");
+              //  playermove.velocity = new Vector2(curspeedD-inspeedD, playermove.velocity.y);
+            }
+            if (prevflag == 1)
+            {
+                if (curspeedA < inspeedA)
+                {
+                    curspeedA += acc * 2f;
+                    playermove.velocity = new Vector2(curspeedA - inspeedA, playermove.velocity.y);
+                }
+                else
+                {
+                    curspeedA = inspeedA - 0.1f;
+                    prevflag = 2;
+                    playermove.velocity = new Vector2(0f, playermove.velocity.y);
+                }
+                Debug.Log(curspeedA + " 2 2");
+                
+            }
+            playermove.velocity = new Vector2(curspeedD, playermove.velocity.y);
+        }
+        ///////////////////////////////////////////////////////////////////////////////////////////end of movement
+        
     }
 }
