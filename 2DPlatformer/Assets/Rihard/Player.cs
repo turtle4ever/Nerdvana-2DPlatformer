@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f;
     int prevflag=0;
 
-    public float jump_f=10f,grav=3f;
+    public float jump_f=10f,grav=3f,dist_To_ground=0.02f;
     int isground = 0;
     private void FixedUpdate()
     {
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1,groundmask);
             Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green,100f);
-            if (Mathf.Abs(hit.point.y - first_ray.y) < 0.2)
+            if (Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
             {
                 isground = 1;
             }
