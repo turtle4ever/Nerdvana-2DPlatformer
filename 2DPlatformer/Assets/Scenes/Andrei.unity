@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 548459821}
   - component: {fileID: 548459822}
   - component: {fileID: 548459823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 1369756213}
   - component: {fileID: 1369756215}
   - component: {fileID: 1369756216}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shoot_Object
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 1457049957}
   - component: {fileID: 1457049959}
   - component: {fileID: 1457049958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,6 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4dfffa793ec4d642ad7978dae6ad18d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layer:
+    serializedVersion: 2
+    m_Bits: 25
 --- !u!58 &1457049959
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -516,7 +519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1547338528
 BoxCollider2D:
   m_ObjectHideFlags: 0
