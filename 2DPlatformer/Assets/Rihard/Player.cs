@@ -25,27 +25,28 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             flag = 1;
-           // GetComponent<SpriteRenderer>().flipX = true;
-          //  GetComponent<Animator>().SetBool("iswalking", true);
+            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<Animator>().SetBool("iswalking", true);
         }
         if (Input.GetKeyUp(KeyCode.A) && flag==1)
         {
             flag = 0;
-          //  GetComponent<Animator>().SetBool("iswalking", false);
+            GetComponent<Animator>().SetBool("iswalking", false);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             flag = 2;
-           // GetComponent<SpriteRenderer>().flipX = false;
-         //   GetComponent<Animator>().SetBool("iswalking", true);
+            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<Animator>().SetBool("iswalking", true);
         }
         if (Input.GetKeyUp(KeyCode.D) && flag==2)
         {
             flag = 0;
-           // GetComponent<Animator>().SetBool("iswalking", false);
+            GetComponent<Animator>().SetBool("iswalking", false);
         }
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
+            GetComponent<Animation>().GetClip("jumping");
             jump = 1;
         }      
         if(Input.GetKeyUp(KeyCode.Space)) 
