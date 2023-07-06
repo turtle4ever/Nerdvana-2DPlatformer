@@ -975,7 +975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &712006077
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1322,12 +1322,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0854c0e0c39ee449e13c61b6234b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flag: 0
+  isslide: 0
   groundmask:
     serializedVersion: 2
     m_Bits: 128
   playerfootleft: {fileID: 734483436}
   playerfootright: {fileID: 2125481657}
   playermove: {fileID: 763015888}
+  colider: {fileID: 0}
   inspeedD: 8.9
   curspeedD: 9
   acc: 0.2
@@ -1338,6 +1341,10 @@ MonoBehaviour:
   jump_f: 12
   grav: 3
   dist_To_ground: 0.03
+  slideslow: -0.5
+  slideslowin: -0.5
+  slideslowinNoKey: 0.5
+  crouch_speed: 1
 --- !u!61 &763015887
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1624,6 +1631,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1072964645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4147323353026620436, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_Name
+      value: EventSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4147323353026620441, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b693108c71cfbf48add0425f79fe268, type: 3}
 --- !u!1 &1097446334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,7 +1841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1169184468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -84539,7 +84603,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 150}
+  m_SizeDelta: {x: 315.52, y: 305.49}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1816885660
 MonoBehaviour:
@@ -84767,7 +84831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2034075473
 RectTransform:
   m_ObjectHideFlags: 0
