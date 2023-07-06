@@ -25,24 +25,24 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             flag = 1;
-            GetComponent<SpriteRenderer>().flipX = true;
-            GetComponent<Animator>().SetBool("iswalking", true);
+           // GetComponent<SpriteRenderer>().flipX = true;
+          //  GetComponent<Animator>().SetBool("iswalking", true);
         }
         if (Input.GetKeyUp(KeyCode.A) && flag==1)
         {
             flag = 0;
-            GetComponent<Animator>().SetBool("iswalking", false);
+          //  GetComponent<Animator>().SetBool("iswalking", false);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             flag = 2;
-            GetComponent<SpriteRenderer>().flipX = false;
-            GetComponent<Animator>().SetBool("iswalking", true);
+           // GetComponent<SpriteRenderer>().flipX = false;
+         //   GetComponent<Animator>().SetBool("iswalking", true);
         }
         if (Input.GetKeyUp(KeyCode.D) && flag==2)
         {
             flag = 0;
-            GetComponent<Animator>().SetBool("iswalking", false);
+           // GetComponent<Animator>().SetBool("iswalking", false);
         }
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
@@ -143,17 +143,10 @@ public class Player : MonoBehaviour
             }
             if (prevflag == 2)
             {
-                if (curspeedD > inspeedD)
-                {
-                    curspeedD -= acc * 2f;
-                    playermove.velocity = new Vector2(curspeedD - inspeedD, playermove.velocity.y);
-                }
-                else
-                {
-                    curspeedD = inspeedD + 0.1f;
-                    playermove.velocity = new Vector2(0, playermove.velocity.y);
-                    prevflag = 1;
-                }
+
+                curspeedD = inspeedD + 0.1f;
+                playermove.velocity = new Vector2(0, playermove.velocity.y);
+                prevflag = 1;
                 Debug.Log(curspeedD + " 1 2");
             }
             playermove.velocity=new Vector2(curspeedA, playermove.velocity.y);
@@ -176,17 +169,9 @@ public class Player : MonoBehaviour
             }
             if (prevflag == 1)
             {
-                if (curspeedA < inspeedA)
-                {
-                    curspeedA += acc * 2f;
-                    playermove.velocity = new Vector2(curspeedA - inspeedA, playermove.velocity.y);
-                }
-                else
-                {
-                    curspeedA = inspeedA - 0.1f;
-                    prevflag = 2;
-                    playermove.velocity = new Vector2(0f, playermove.velocity.y);
-                }
+                curspeedA = inspeedA - 0.1f;
+                prevflag = 2;
+                playermove.velocity = new Vector2(0f, playermove.velocity.y);
                 Debug.Log(curspeedA + " 2 2");
                 
             }
