@@ -6,11 +6,14 @@ public class CharacterMouseFollow : MonoBehaviour
 {
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Global.timeworks == false)
+        {
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (mousePosition.x < transform.position.x)
-            transform.eulerAngles = new Vector3(0, 0, 180);
-        else
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            if (mousePosition.x < transform.position.x)
+                transform.eulerAngles = new Vector3(0, 0, 180);
+            else
+                transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 }

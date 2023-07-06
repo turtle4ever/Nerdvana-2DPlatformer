@@ -32,17 +32,20 @@ public class EnemyFollow : MonoBehaviour
 
     private void Update()
     {
-        if (CanSeePlayer())
+        if (Global.timeworks == false)
         {
-            gunFollow.FollowPlayer(player);
+            if (CanSeePlayer())
+            {
+                gunFollow.FollowPlayer(player);
 
-            if (player.transform.position.x < transform.position.x)
-            {
-                transform.eulerAngles = new Vector3(0, 0, 180);
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                if (player.transform.position.x < transform.position.x)
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 180);
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
             }
         }
     }

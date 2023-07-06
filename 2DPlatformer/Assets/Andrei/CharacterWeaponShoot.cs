@@ -9,10 +9,13 @@ public class CharacterWeaponShoot : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Global.timeworks == false)
         {
-            GameObject bulletClone = Instantiate(bullet, transform.position, transform.rotation);
-            bulletClone.GetComponent<Rigidbody2D>().AddForce(bulletClone.transform.right * speed);
+            if (Input.GetMouseButtonDown(0))
+            {
+                GameObject bulletClone = Instantiate(bullet, transform.position, transform.rotation);
+                bulletClone.GetComponent<Rigidbody2D>().AddForce(bulletClone.transform.right * speed);
+            }
         }
     }
 }
