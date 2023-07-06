@@ -17,13 +17,14 @@ public class Quit : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Time.timeScale = 1;
         StartCoroutine(waiter());
-
+           
     }
 
     IEnumerator waiter()
     {
-
+        
         yield return new WaitForSeconds(0.5f);
         Application.Quit();
         

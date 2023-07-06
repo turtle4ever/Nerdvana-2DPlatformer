@@ -17,6 +17,7 @@ public class MENU_PLAY : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Time.timeScale = 1;
         StartCoroutine(waiter());
         
     }   
