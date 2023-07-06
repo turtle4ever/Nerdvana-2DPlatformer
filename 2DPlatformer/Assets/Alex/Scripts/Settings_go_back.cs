@@ -11,19 +11,21 @@ public class Settings_go_back : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     [SerializeField] private AudioSource source;
 
     public void OnPointerDown(PointerEventData eventData)
-    {
+    {//Time.timeScale = 1;
         source.PlayOneShot(clipcomp);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        Time.timeScale = 1;
         StartCoroutine(waiter());
-        SceneManager.LoadScene("Menu");
+        
     }
 
     IEnumerator waiter()
     {
-
-        yield return new WaitForSeconds(1);
+        
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Menu");
     }
 }
