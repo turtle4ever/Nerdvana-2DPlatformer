@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 548459822}
   - component: {fileID: 548459823}
   - component: {fileID: 548459824}
+  - component: {fileID: 548459825}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
@@ -253,7 +254,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTurnSpeed: 360
   smoothTime: 0.3
-  instant: 0
+  instant: 1
+--- !u!114 &548459825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548459819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f82074620eaa004b8d6078147eb9ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyFollow: {fileID: 1457049958}
+  speed: 100
+  bullet: {fileID: 990276314078011775, guid: 504286285fc4f574a954d7c12817767c, type: 3}
+  cooldown: 1
 --- !u!1 &1369756212
 GameObject:
   m_ObjectHideFlags: 0
