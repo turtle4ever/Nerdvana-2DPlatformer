@@ -18,12 +18,13 @@ public class Settings_start : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     public void OnPointerUp(PointerEventData eventData)
     {
         StartCoroutine(waiter());
-        SceneManager.LoadScene("Settings");
+        
     }
 
     IEnumerator waiter()
     {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Settings");
     }
 }

@@ -18,12 +18,13 @@ public class Settings_go_back : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     public void OnPointerUp(PointerEventData eventData)
     {
         StartCoroutine(waiter());
-        SceneManager.LoadScene("Menu");
+        
     }
 
     IEnumerator waiter()
     {
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("Menu");
     }
 }
