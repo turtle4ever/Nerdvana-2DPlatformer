@@ -25,18 +25,24 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             flag = 1;
+            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<Animator>().SetBool("iswalking", true);
         }
         if (Input.GetKeyUp(KeyCode.A) && flag==1)
         {
             flag = 0;
+            GetComponent<Animator>().SetBool("iswalking", false);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             flag = 2;
+            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<Animator>().SetBool("iswalking", true);
         }
         if (Input.GetKeyUp(KeyCode.D) && flag==2)
         {
             flag = 0;
+            GetComponent<Animator>().SetBool("iswalking", false);
         }
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
@@ -54,7 +60,7 @@ public class Player : MonoBehaviour
     int isground = 0,isslope=0;
     private void FixedUpdate()
     {
-
+        
         
         isground = 0;
         Vector2 first_ray = playerfootleft.transform.position;
