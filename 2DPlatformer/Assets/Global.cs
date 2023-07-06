@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Global : MonoBehaviour
 {
-    static bool timeworks = false;
+    public static bool timeworks = false;
     // Start is called before the first frame update
     void Start()
     {
