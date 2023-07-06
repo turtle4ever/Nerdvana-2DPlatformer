@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Karma Future SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -2026235488
   material: {fileID: 8584482037500809154}
-  materialHashCode: 0
+  materialHashCode: 1387939712
   m_Version: 1.1.0
   m_SourceFontFileGUID: 789c1dd132f52b948b6b6c2d5a20c473
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 789c1dd132f52b948b6b6c2d5a20c473, type: 3}
@@ -2661,9 +2661,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MENU_PLAY : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class Settings_start : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private AudioClip clipcomp;
     [SerializeField] private AudioSource source;
@@ -18,12 +18,12 @@ public class MENU_PLAY : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerUp(PointerEventData eventData)
     {
         StartCoroutine(waiter());
-        SceneManager.LoadScene("Level1");
-    }   
+        SceneManager.LoadScene("Settings");
+    }
 
     IEnumerator waiter()
     {
-        
+
         yield return new WaitForSeconds(1);
     }
 }
