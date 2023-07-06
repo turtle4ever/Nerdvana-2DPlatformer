@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyFollow : MonoBehaviour
 {
     public LayerMask layer;
+    public EnemyGunFollow gunFollow;
 
     private GameObject player;
 
@@ -30,7 +31,16 @@ public class EnemyFollow : MonoBehaviour
     {
         if (player != null && CanSeeObject(player))
         {
+            gunFollow.FollowPlayer(player);
 
+            if (player.transform.position.x < transform.position.x)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 180);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
         }
     }
 
