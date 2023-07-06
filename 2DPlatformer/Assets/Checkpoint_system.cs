@@ -9,7 +9,10 @@ public class Checkpoint_system : MonoBehaviour
     {
         
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       // if(collision.tag=="")
+    }
     // Update is called once per frame
     void Update()
     {

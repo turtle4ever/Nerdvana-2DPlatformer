@@ -11,19 +11,22 @@ public class CharacterWeaponMouseFollow : MonoBehaviour
     float currentVelocity;
     void Update()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 direction = mousePosition - transform.position;
-        float targetAngle = Vector2.SignedAngle(Vector2.right, direction);
-
-        if (instant)
+        if (Global.timeworks == false)
         {
-            angle = targetAngle;
-        }
-        else
-        {
-            angle = Mathf.SmoothDampAngle(angle, targetAngle, ref currentVelocity, smoothTime, maxTurnSpeed);
-        }
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 direction = mousePosition - transform.position;
+            float targetAngle = Vector2.SignedAngle(Vector2.right, direction);
 
-        transform.eulerAngles = new Vector3(0, 0, angle);
+            if (instant)
+            {
+                angle = targetAngle;
+            }
+            else
+            {
+                angle = Mathf.SmoothDampAngle(angle, targetAngle, ref currentVelocity, smoothTime, maxTurnSpeed);
+            }
+
+            transform.eulerAngles = new Vector3(0, 0, angle);
+        }
     }
 }

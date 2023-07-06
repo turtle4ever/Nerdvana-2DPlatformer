@@ -15,7 +15,7 @@ public class EnemyShoot : MonoBehaviour
 
     private void Update()
     {
-        if (enemyFollow.CanSeePlayer())
+        if (enemyFollow.CanSeePlayer()&&Global.timeworks == false)
         {
             timer += Time.deltaTime;
             if (timer >= cooldown)
