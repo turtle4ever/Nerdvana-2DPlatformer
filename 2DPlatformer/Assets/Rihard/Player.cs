@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     {
         
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -99,10 +100,10 @@ public class Player : MonoBehaviour
             {
                 RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1f, groundmask);
                 RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(i, first_ray.y+up), new Vector2(0, 1), above_cast, groundmask);
-                Debug.Log(hit2.collider + " " + hit2.point, hit2.collider);
-                Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green, 1f);
-                Debug.DrawRay(new Vector2(i, first_ray.y+up), new Vector2(0, above_cast), Color.red, 1f);
-                Debug.Log(Mathf.Abs(first_ray.y) + "chestie pamant");
+               // Debug.Log(hit2.collider + " " + hit2.point, hit2.collider);
+               // Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green, 1f);
+               // Debug.DrawRay(new Vector2(i, first_ray.y+up), new Vector2(0, above_cast), Color.red, 1f);
+               // Debug.Log(Mathf.Abs(first_ray.y) + "chestie pamant");
                 if (hit.collider!=null && Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
                 {
                     isground = 1;
@@ -119,12 +120,12 @@ public class Player : MonoBehaviour
             if (isground == 1)
             {
                 //playermove.velocity = new Vector2(5f, 5f);
-                Debug.Log("it is indeed on ground");
+               // Debug.Log("it is indeed on ground");
                 playermove.gravityScale = 0;
             }
             else
             {
-                Debug.Log("nuh-uh on ground");
+              //  Debug.Log("nuh-uh on ground");
                 playermove.gravityScale = grav;
             }
             if (crouch_check == 0 && crouch_check2==0)
@@ -141,7 +142,7 @@ public class Player : MonoBehaviour
                 }
                 if (jump == 1 && isground == 1)
                 {
-                    Debug.Log("jump");
+                   // Debug.Log("jump");
                     playermove.velocity = (new Vector2(0, jump_f));
                     // playermove.gravityScale = grav;
                 }
@@ -173,7 +174,7 @@ public class Player : MonoBehaviour
                             playermove.velocity = new Vector2(0, playermove.velocity.y);
                             prevflag = 0;
                         }
-                        Debug.Log(curspeedA);
+                       // Debug.Log(curspeedA);
                     }
                     if (prevflag == 2)
                     {
@@ -218,7 +219,7 @@ public class Player : MonoBehaviour
                             crouch_check = 1;
                             curspeedA = inspeedA - 0.1f;
                         }
-                        Debug.Log(curspeedA + " 1");
+                       // Debug.Log(curspeedA + " 1");
                         //  playermove.velocity = new Vector2(curspeedA - inspeedA, playermove.velocity.y);
                     }
                     if (prevflag == 2)
@@ -227,7 +228,7 @@ public class Player : MonoBehaviour
                         curspeedD = inspeedD + 0.1f;
                         playermove.velocity = new Vector2(0, playermove.velocity.y);
                         prevflag = 1;
-                        Debug.Log(curspeedD + " 1 2");
+                        //Debug.Log(curspeedD + " 1 2");
                     }
                     playermove.velocity = new Vector2(curspeedA, playermove.velocity.y);
                 }
@@ -257,7 +258,7 @@ public class Player : MonoBehaviour
                             crouch_check = 1;
                             curspeedD = inspeedD + 0.1f;
                         }
-                        Debug.Log(curspeedD + " 2");
+                       /// Debug.Log(curspeedD + " 2");
                         //  playermove.velocity = new Vector2(curspeedD-inspeedD, playermove.velocity.y);
                     }
                     if (prevflag == 1)
@@ -265,7 +266,7 @@ public class Player : MonoBehaviour
                         curspeedA = inspeedA - 0.1f;
                         prevflag = 2;
                         playermove.velocity = new Vector2(0f, playermove.velocity.y);
-                        Debug.Log(curspeedA + " 2 2");
+                      //  Debug.Log(curspeedA + " 2 2");
 
                     }
                     playermove.velocity = new Vector2(curspeedD, playermove.velocity.y);
