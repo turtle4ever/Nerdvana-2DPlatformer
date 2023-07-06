@@ -78,43 +78,55 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f,maxspeedA=-30f,maxspeedD=30f;
+    public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f,maxspeedA=-30f,maxspeedD=30f,above_cast=2f;
     int prevflag=0;
 
     public float jump_f=10f,grav=3f,dist_To_ground=0.02f,slideslow=-0.5f,slideslowin=-0.5f,slideslowinNoKey=0.5f,crouch_speed=1f;
-    int isground = 0,crouch_check=0;
+    int isground = 0,crouch_check=0,ishead=0,crouch_check2=0;
     private void FixedUpdate()
     {
 
         if (Global.timeworks == false)
         {
-            if (crouch_check == 0)
+            isground = 0;
+            ishead = 0;
+            crouch_check2 = 0;
+            Vector2 first_ray = playerfootleft.transform.position;
+            Vector2 last_ray = playerfootright.transform.position;
+            for (float i = first_ray.x; i < last_ray.x; i += 0.05f)
+            {
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1f, groundmask);
+                RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, 1), above_cast, groundmask);
+                Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green, 1f);
+                Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, above_cast), Color.red, 1f);
+                Debug.Log(Mathf.Abs(first_ray.y) + "chestie pamant");
+                if (Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
+                {
+                    isground = 1;
+                }
+                if (Mathf.Abs(hit2.point.y - first_ray.y) < above_cast)
+                {
+                    ishead = 1;
+                }
+            }
+            if (isground == 1 && ishead == 1)
+            {
+                crouch_check2 = 1;
+            }
+            if (crouch_check == 0 && crouch_check2==0)
             {
                 if (isslide == 1)
                 {
                     colider.size = new Vector2(0.85f, 0.2f);
-                    if(flag==2)
-                    colider.offset = new Vector2(-0.2f, -0.4f);
+                    if (flag == 2)
+                        colider.offset = new Vector2(-0.2f, -0.4f);
                     else
-                    colider.offset = new Vector2(0.2f, -0.4f);
+                        colider.offset = new Vector2(0.2f, -0.4f);
                 }
                 else
                 {
-                    colider.size = new Vector2(0.2f,0.85f);
-                    colider.offset = new Vector2(-0.05f,-0.078f);
-                }
-                isground = 0;
-                Vector2 first_ray = playerfootleft.transform.position;
-                Vector2 last_ray = playerfootright.transform.position;
-                for (float i = first_ray.x; i < last_ray.x; i += 0.05f)
-                {
-                    RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1, groundmask);
-                    Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green, 100f);
-                    Debug.Log(Mathf.Abs(first_ray.y - hit.point.y) + "chestie pamant");
-                    if (Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
-                    {
-                        isground = 1;
-                    }
+                    colider.size = new Vector2(0.2f, 0.85f);
+                    colider.offset = new Vector2(-0.05f, -0.078f);
                 }
                 if (isground == 1)
                 {
@@ -258,21 +270,22 @@ public class Player : MonoBehaviour
                     }
                     playermove.velocity = new Vector2(curspeedD, playermove.velocity.y);
                 }
-                ///////////////////////////////////////////////////////////////////////////////////////////end of movement
+                
+                    ///////////////////////////////////////////////////////////////////////////////////////////end of movement
             }
             else
             {
-                colider.size = new Vector2(0.2f,0.2f);
-                colider.offset = new Vector2(-0.05f,-0.4f);
-                if(flag==0)
+                colider.size = new Vector2(0.2f, 0.2f);
+                colider.offset = new Vector2(-0.05f, -0.4f);
+                if (flag == 0)
                 {
                     playermove.velocity = Vector2.zero;
                 }
-                if(flag==1)
+                if (flag == 1)
                 {
-                    playermove.velocity = new Vector2(-crouch_speed,0f);
+                    playermove.velocity = new Vector2(-crouch_speed, 0f);
                 }
-                if(flag==2)
+                if (flag == 2)
                 {
                     playermove.velocity = new Vector2(crouch_speed, 0f);
                 }
