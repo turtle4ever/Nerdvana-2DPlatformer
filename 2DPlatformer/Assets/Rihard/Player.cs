@@ -47,13 +47,15 @@ public class Player : MonoBehaviour
             jump = 0;
         }
     }
-    public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f;
+    public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f,maxspeedA=-30f,maxspeedD=30f;
     int prevflag=0;
 
     public float jump_f=10f,grav=3f,dist_To_ground=0.02f;
-    int isground = 0;
+    int isground = 0,isslope=0;
     private void FixedUpdate()
     {
+
+        
         isground = 0;
         Vector2 first_ray = playerfootleft.transform.position;
         Vector2 last_ray = playerfootright.transform.position;
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1,groundmask);
             Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green,100f);
+            Debug.Log(Mathf.Abs(first_ray.y-hit.point.y) + "chestie pamant");
             if (Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
             {
                 isground = 1;
@@ -68,6 +71,7 @@ public class Player : MonoBehaviour
         }
         if (isground == 1)
         {
+            //playermove.velocity = new Vector2(5f, 5f);
             Debug.Log("it is indeed on ground");
             playermove.gravityScale = 0;
         }
@@ -79,7 +83,7 @@ public class Player : MonoBehaviour
         if (jump==1 && isground==1)
         {
             Debug.Log("jump");
-            playermove.AddForce(new Vector2(0, jump_f));
+            playermove.velocity=(new Vector2(0, jump_f));
            // playermove.gravityScale = grav;
         }
         ////////////////////////////////////////////////////////////////////////////////////////////////////Movement left right
@@ -126,6 +130,7 @@ public class Player : MonoBehaviour
                 if (curspeedA < inspeedA)
                 {
                     curspeedA -= acc;
+                    curspeedA = Mathf.Max(curspeedA, maxspeedA);
                 }
                 Debug.Log(curspeedA + " 1");
               //  playermove.velocity = new Vector2(curspeedA - inspeedA, playermove.velocity.y);
@@ -158,6 +163,7 @@ public class Player : MonoBehaviour
                 if (curspeedD > inspeedD)
                 {
                     curspeedD += acc;
+                    curspeedD = Mathf.Min(curspeedD, maxspeedD);
                 }
                 Debug.Log(curspeedD + " 2");
               //  playermove.velocity = new Vector2(curspeedD-inspeedD, playermove.velocity.y);
