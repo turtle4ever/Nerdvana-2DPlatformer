@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
             }
             if(flag==0)
             {
+                if (isslide == 1)
+                    crouch_check = 1;
                 GetComponent<Animator>().SetBool("iswalking", false);
             }
             if(flag==1)
@@ -109,7 +111,7 @@ public class Player : MonoBehaviour
                     ishead = 1;
                 }
             }
-            if (isground == 1 && ishead == 1)
+            if (isground == 1 && ishead == 1 && isslide==0)
             {
                 crouch_check2 = 1;
             }
