@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 548459821}
   - component: {fileID: 548459822}
   - component: {fileID: 548459823}
+  - component: {fileID: 548459824}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
@@ -231,13 +232,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548459819}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cc01961a2199b543aa6b775124281b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
   bullet: {fileID: 990276314078011775, guid: 504286285fc4f574a954d7c12817767c, type: 3}
+--- !u!114 &548459824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548459819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d8742aeda3c67a4aac0e19ad319877d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTurnSpeed: 360
+  smoothTime: 0.3
+  instant: 0
 --- !u!1 &1369756212
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +267,7 @@ GameObject:
   - component: {fileID: 1369756215}
   - component: {fileID: 1369756216}
   m_Layer: 3
-  m_Name: Shoot_Object
+  m_Name: Shoot_Object/Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -317,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369756212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.07, y: 0.43, z: 0}
+  m_LocalPosition: {x: -7.63, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -485,7 +501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layer:
     serializedVersion: 2
-    m_Bits: 25
+    m_Bits: 136
+  gunFollow: {fileID: 548459824}
 --- !u!58 &1457049959
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -513,13 +530,13 @@ GameObject:
   - component: {fileID: 1547338530}
   - component: {fileID: 1547338529}
   - component: {fileID: 1547338528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1547338528
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -606,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547338527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8517075, y: -1.0059754, z: 0}
+  m_LocalPosition: {x: -2.72, y: -1.1, z: 0}
   m_LocalScale: {x: 1, y: 14.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
