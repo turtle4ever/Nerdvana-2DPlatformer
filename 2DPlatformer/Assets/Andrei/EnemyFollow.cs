@@ -9,12 +9,16 @@ public class EnemyFollow : MonoBehaviour
 
     private GameObject player;
 
+    public bool CanSeePlayer()
+    {
+        return player != null && CanSeeObject(player);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             player = collision.gameObject;
-            Debug.Log("Player entered aggro range");
         }
     }
 
@@ -23,13 +27,12 @@ public class EnemyFollow : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player = null;
-            Debug.Log("Player exited aggro range");
         }
     }
 
     private void Update()
     {
-        if (player != null && CanSeeObject(player))
+        if (CanSeePlayer())
         {
             gunFollow.FollowPlayer(player);
 
