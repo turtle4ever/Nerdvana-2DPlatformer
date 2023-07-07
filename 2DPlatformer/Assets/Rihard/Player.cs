@@ -131,11 +131,8 @@ public class Player : MonoBehaviour
             {
                 if (isslide == 1)
                 {
-                    colider.size = new Vector2(0.85f, 0.2f);
-                    if (flag == 2)
-                        colider.offset = new Vector2(-0.2f, -0.4f);
-                    else
-                        colider.offset = new Vector2(0.2f, -0.4f);
+                    colider.size = new Vector2(0.2f, 0.2f);
+                    colider.offset = new Vector2(-0.05f, -0.4f);
                 }
                 else
                 {
