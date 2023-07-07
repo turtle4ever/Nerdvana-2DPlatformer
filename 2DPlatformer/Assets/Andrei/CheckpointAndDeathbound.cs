@@ -12,10 +12,11 @@ public class CheckpointAndDeathbound : MonoBehaviour
     {
         if (collision.tag == "Checkpoint")
         {
-            Global.spawnpoint = gameObject.transform.position;
+            Global.spawnpoint = collision.gameObject.transform.position;
         }
         if(collision.tag == "DeathBound")
         {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             gameObject.transform.position = Global.spawnpoint;
         }
     }
