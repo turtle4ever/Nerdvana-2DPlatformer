@@ -26,6 +26,7 @@ public class Settings_start : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Hello");
+        Global.timeworks = false;
         SceneManager.LoadScene("Settings");
     }
 }
