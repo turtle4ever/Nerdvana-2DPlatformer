@@ -25,6 +25,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GetComponent<Animator>().GetBool("iscrouching"))
+        {
+            GetComponent<Animator>().SetBool("iswalking", false);        
+        }
         if (Global.timeworks == false)
         {
             if (Input.GetKeyDown(KeyCode.A))
@@ -63,16 +67,18 @@ public class Player : MonoBehaviour
             if (flag==1)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
+                if (GetComponent<Animator>().GetBool("isrolling") == false)
                 GetComponent<Animator>().SetBool("iswalking", true);
             }
             if(flag==2)
             {
                 GetComponent<SpriteRenderer>().flipX = false;
-                GetComponent<Animator>().SetBool("iswalking", true);
+                if (GetComponent<Animator>().GetBool("isrolling") == false)
+                    GetComponent<Animator>().SetBool("iswalking", true);
             }
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                GetComponent<Animation>().GetClip("jumping");
+                //GetComponent<Animation>().GetClip("jumping");
                 jump = 1;
             }
             if (Input.GetKeyUp(KeyCode.Space))
@@ -134,9 +140,13 @@ public class Player : MonoBehaviour
                 {
                     colider.size = new Vector2(0.2f, 0.2f);
                     colider.offset = new Vector2(-0.05f, -0.4f);
+                    GetComponent<Animator>().SetBool("isrolling", true);
+                    GetComponent<Animator>().SetBool("iswalking", false);
                 }
                 else
                 {
+                    GetComponent<Animator>().SetBool("isrolling", false);
+                    GetComponent<Animator>().SetBool("iscrouching", false);
                     colider.size = new Vector2(0.2f, 0.85f);
                     colider.offset = new Vector2(-0.05f, -0.078f);
                 }
@@ -274,10 +284,14 @@ public class Player : MonoBehaviour
                 
                     ///////////////////////////////////////////////////////////////////////////////////////////end of movement
             }
-            else
+            if (crouch_check == 1 || crouch_check2 == 1)
             {
                 colider.size = new Vector2(0.2f, 0.2f);
                 colider.offset = new Vector2(-0.05f, -0.4f);
+                
+                GetComponent<Animator>().SetBool("isrolling", false);
+                GetComponent<Animator>().SetBool("iswalking", false);
+                GetComponent<Animator>().SetBool("iscrouching", true);
                 if (flag == 0)
                 {
                     playermove.velocity = new Vector2(0f,playermove.velocity.y);
