@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-public class Level1 : MonoBehaviour
+public class Level2 : MonoBehaviour
 {
     public void OnCollisionEnter2D(Collision2D other)
     {
@@ -19,6 +18,6 @@ public class Level1 : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         Global.timeworks = false;
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene("Boss_level");
     }
 }

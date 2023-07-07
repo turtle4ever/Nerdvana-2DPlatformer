@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
                 if (jump == 1 && isground == 1)
                 {
                     // Debug.Log("jump");
-                    GetComponent<AudioSource>().Play();
+                    //GetComponent<AudioSource>().Play();
                     playermove.velocity = (new Vector2(0, jump_f));
                     // playermove.gravityScale = grav;
                 }
