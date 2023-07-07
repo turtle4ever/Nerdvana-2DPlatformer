@@ -9,13 +9,14 @@ public class EnemyGunFollow : MonoBehaviour
     public bool instant = false;
     float angle;
     float currentVelocity;
+
     public void FollowPlayer(GameObject player)
     {
         
         Vector3 characterPosition = player.transform.position;
         Vector3 direction = characterPosition - transform.position;
         float targetAngle = Vector2.SignedAngle(Vector2.right, direction);
-
+        targetAngle += 90;
         if (instant)
         {
             angle = targetAngle;
@@ -26,5 +27,6 @@ public class EnemyGunFollow : MonoBehaviour
         }
 
         transform.eulerAngles = new Vector3(0, 0, angle);
+
     }
 }

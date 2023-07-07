@@ -40,11 +40,11 @@ public class EnemyFollow : MonoBehaviour
 
                 if (player.transform.position.x < transform.position.x)
                 {
-                    transform.eulerAngles = new Vector3(0, 0, 180);
+                    gameObject.GetComponent<SpriteRenderer>().flipX = true;
                 }
                 else
                 {
-                    transform.eulerAngles = new Vector3(0, 0, 0);
+                   gameObject.GetComponent<SpriteRenderer>().flipX = false;
                 }
             }
         }
@@ -53,7 +53,7 @@ public class EnemyFollow : MonoBehaviour
     bool CanSeeObject(GameObject gameObject)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, (gameObject.transform.position - transform.position).normalized, 100.0f, layer);
-        Debug.DrawRay(transform.position, (gameObject.transform.position - transform.position).normalized * 100.0f, Color.cyan, 1);
+        //Debug.DrawRay(transform.position, (gameObject.transform.position - transform.position).normalized * 100.0f, Color.cyan, 1);
 
         if (hit.collider != null && hit.collider.gameObject == gameObject)
         {

@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class CheckpointAndDeathbound : MonoBehaviour
 {
-    void Start()
-    {
-        Global.spawnpoint = gameObject.transform.position;
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Checkpoint")
         {
             Global.spawnpoint = collision.gameObject.transform.position;
+            collision.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
         if(collision.tag == "DeathBound")
         {
