@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using UnityEditor.U2D;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using static Unity.Burst.Intrinsics.X86;
