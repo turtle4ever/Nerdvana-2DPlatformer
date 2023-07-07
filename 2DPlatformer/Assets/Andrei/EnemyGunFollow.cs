@@ -16,7 +16,6 @@ public class EnemyGunFollow : MonoBehaviour
         Vector3 characterPosition = player.transform.position;
         Vector3 direction = characterPosition - transform.position;
         float targetAngle = Vector2.SignedAngle(Vector2.right, direction);
-        targetAngle += 90;
         if (instant)
         {
             angle = targetAngle;

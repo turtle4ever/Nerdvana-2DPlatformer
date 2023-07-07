@@ -17,7 +17,7 @@ public class Level1 : MonoBehaviour
 
     IEnumerator waiter()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         Global.timeworks = false;
         SceneManager.LoadScene("Level2");
     }

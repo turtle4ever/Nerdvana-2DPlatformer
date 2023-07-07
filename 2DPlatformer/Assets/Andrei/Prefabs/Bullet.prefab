@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 990276314078011773}
   - component: {fileID: 990276314078011771}
   - component: {fileID: -3049386943667218397}
-  - component: {fileID: 8667275136870167258}
-  m_Layer: 0
+  - component: {fileID: 7786053189126506785}
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: DeathBound
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990276314078011775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9231974, y: 0.0024813598, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: 0.9231974, y: 0.0024813598, z: -13.46}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -120,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8065207ac104c38438c41c2d729142b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfter: 3
---- !u!58 &8667275136870167258
+  destroyAfter: 5
+--- !u!58 &7786053189126506785
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,4 +136,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.49999997
