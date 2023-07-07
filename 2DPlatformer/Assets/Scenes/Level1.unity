@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 541844768}
   m_Layer: 0
   m_Name: CheckPoint (1)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2303,7 +2303,7 @@ GameObject:
   - component: {fileID: 1297771040}
   m_Layer: 0
   m_Name: CheckPoint (4)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2582,7 +2582,7 @@ GameObject:
   - component: {fileID: 1352083319}
   m_Layer: 0
   m_Name: CheckPoint
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2912,7 +2912,7 @@ GameObject:
   - component: {fileID: 1478896212}
   m_Layer: 0
   m_Name: CheckPoint (2)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3089,8 +3089,8 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.05, y: -0.078}
   m_SpriteTilingProperty:
-    border: {x: 0.34375, y: 0, z: 0.4375, w: 0.15625}
-    pivot: {x: 0.4568823, y: 0.50331676}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -3115,8 +3115,8 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.354}
   m_SpriteTilingProperty:
-    border: {x: 0.34375, y: 0, z: 0.4375, w: 0.15625}
-    pivot: {x: 0.4568823, y: 0.50331676}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -3214,8 +3214,8 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.09}
   m_SpriteTilingProperty:
-    border: {x: 0.34375, y: 0, z: 0.4375, w: 0.15625}
-    pivot: {x: 0.4568823, y: 0.50331676}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -85356,6 +85356,7 @@ GameObject:
   - component: {fileID: 1622718445}
   - component: {fileID: 1622718447}
   - component: {fileID: 1622718446}
+  - component: {fileID: 1622718448}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -85429,6 +85430,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1622718448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622718444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0123d718d0010df4dbe6a0d8c8e72bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Button: {fileID: 712006076}
+  Button1: {fileID: 2034075472}
+  Button2: {fileID: 1169184467}
 --- !u!1 &1648868211
 GameObject:
   m_ObjectHideFlags: 0
@@ -85686,7 +85702,7 @@ GameObject:
   - component: {fileID: 1825380126}
   m_Layer: 0
   m_Name: CheckPoint (3)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

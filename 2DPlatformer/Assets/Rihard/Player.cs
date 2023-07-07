@@ -49,18 +49,18 @@ public class Player : MonoBehaviour
             {
                 isslide = 1;
             }
-            if(Input.GetKeyUp(KeyCode.S))
-            {
-                isslide = 0;
-                crouch_check = 0;
-            }
             if(flag==0)
             {
                 if (isslide == 1)
                     crouch_check = 1;
                 GetComponent<Animator>().SetBool("iswalking", false);
             }
-            if(flag==1)
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                isslide = 0;
+                crouch_check = 0;
+            }
+            if (flag==1)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
                 GetComponent<Animator>().SetBool("iswalking", true);
