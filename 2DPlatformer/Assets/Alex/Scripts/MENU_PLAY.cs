@@ -26,6 +26,7 @@ public class MENU_PLAY : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         
         yield return new WaitForSeconds(0.5f);
+        Global.timeworks = false;
         SceneManager.LoadScene("Level1");
     }
 

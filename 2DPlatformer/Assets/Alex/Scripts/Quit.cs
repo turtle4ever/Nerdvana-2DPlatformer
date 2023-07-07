@@ -26,6 +26,7 @@ public class Quit : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         
         yield return new WaitForSeconds(0.5f);
+        Global.timeworks = false;
         Application.Quit();
         
     }

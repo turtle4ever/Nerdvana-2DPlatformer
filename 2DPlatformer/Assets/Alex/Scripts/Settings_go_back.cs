@@ -26,6 +26,7 @@ public class Settings_go_back : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     {
         
         yield return new WaitForSeconds(0.5f);
+        Global.timeworks = false;
         SceneManager.LoadScene("Menu");
     }
 }
