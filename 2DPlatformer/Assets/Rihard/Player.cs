@@ -34,50 +34,56 @@ public class Player : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.A) && flag == 1)
             {
                 flag = 0;
-               // GetComponent<Animator>().SetBool("iswalking", false);
+                // GetComponent<Animator>().SetBool("iswalking", false);
             }
             if (Input.GetKeyDown(KeyCode.D))
-            { 
+            {
                 flag = 2;
-            }
-            if (Input.GetKeyUp(KeyCode.D) && flag == 2)
-            {
-                flag = 0;
-                //GetComponent<Animator>().SetBool("iswalking", false);
-            }
-            if(Input.GetKeyDown(KeyCode.S))
-            {
-                isslide = 1;
-            }
-            if(Input.GetKeyUp(KeyCode.S))
-            {
-                isslide = 0;
-                crouch_check = 0;
-            }
-            if(flag==0)
-            {
-                if (isslide == 1)
-                    crouch_check = 1;
-                GetComponent<Animator>().SetBool("iswalking", false);
-            }
-            if(flag==1)
-            {
-                GetComponent<SpriteRenderer>().flipX = true;
-                GetComponent<Animator>().SetBool("iswalking", true);
-            }
-            if(flag==2)
-            {
-                GetComponent<SpriteRenderer>().flipX = false;
-                GetComponent<Animator>().SetBool("iswalking", true);
-            }
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GetComponent<Animation>().GetClip("jumping");
-                jump = 1;
-            }
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                jump = 0;
+
+                if (Input.GetKeyUp(KeyCode.D) && flag == 2)
+                {
+                    flag = 0;
+                    //GetComponent<Animator>().SetBool("iswalking", false);
+                }
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    isslide = 1;
+                }
+              /*  if (Input.GetKeyUp(KeyCode.S))
+                {
+                    isslide = 0;
+                    crouch_check = 0;
+                }*/
+                if (flag == 0)
+                {
+                    if (isslide == 1)
+                        crouch_check = 1;
+                    GetComponent<Animator>().SetBool("iswalking", false);
+                }
+                if (flag == 1)
+                {
+                    GetComponent<SpriteRenderer>().flipX = true;
+                    GetComponent<Animator>().SetBool("iswalking", true);
+                }
+                if (flag == 2)
+                {
+                    GetComponent<SpriteRenderer>().flipX = false;
+                    GetComponent<Animator>().SetBool("iswalking", true);
+                }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GetComponent<Animation>().GetClip("jumping");
+                    jump = 1;
+                }
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    jump = 0;
+                }
+                if (Input.GetKeyUp(KeyCode.S))
+                {
+                    isslide = 0;
+                    crouch_check = 0;
+                }
             }
         }
     }
