@@ -83,8 +83,8 @@ public class Player : MonoBehaviour
     public float inspeedD=8.9f,curspeedD=9f,acc=0.2f,inspeedA=-8.9f,curspeedA=-9f,maxspeedA=-30f,maxspeedD=30f,above_cast=2f;
     int prevflag=0;
 
-    public float jump_f=10f,grav=3f,dist_To_ground=0.02f,slideslow=-0.5f,slideslowin=-0.5f,slideslowinNoKey=0.5f,crouch_speed=1f;
-    int isground = 0,crouch_check=0,ishead=0,crouch_check2=0;
+    public float jump_f=10f,grav=3f,dist_To_ground=0.02f,slideslow=-0.5f,slideslowin=-0.5f,slideslowinNoKey=0.5f,crouch_speed=1f,up=0.2f;
+    public int isground = 0,crouch_check=0,ishead=0,crouch_check2=0;
     private void FixedUpdate()
     {
 
@@ -98,15 +98,16 @@ public class Player : MonoBehaviour
             for (float i = first_ray.x; i < last_ray.x; i += 0.05f)
             {
                 RaycastHit2D hit = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, -1), 1f, groundmask);
-                RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(i, first_ray.y), new Vector2(0, 1), above_cast, groundmask);
+                RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(i, first_ray.y+up), new Vector2(0, 1), above_cast, groundmask);
+                Debug.Log(hit2.collider + " " + hit2.point, hit2.collider);
                 Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, -1), Color.green, 1f);
-                Debug.DrawRay(new Vector2(i, first_ray.y), new Vector2(0, above_cast), Color.red, 1f);
+                Debug.DrawRay(new Vector2(i, first_ray.y+up), new Vector2(0, above_cast), Color.red, 1f);
                 Debug.Log(Mathf.Abs(first_ray.y) + "chestie pamant");
-                if (Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
+                if (hit.collider!=null && Mathf.Abs(hit.point.y - first_ray.y) < dist_To_ground)
                 {
                     isground = 1;
                 }
-                if (Mathf.Abs(hit2.point.y - first_ray.y) < above_cast)
+                if (hit2.collider!=null && Mathf.Abs(hit2.point.y - (first_ray.y+up)) < above_cast)
                 {
                     ishead = 1;
                 }
@@ -114,6 +115,17 @@ public class Player : MonoBehaviour
             if (isground == 1 && ishead == 1 && isslide==0)
             {
                 crouch_check2 = 1;
+            }
+            if (isground == 1)
+            {
+                //playermove.velocity = new Vector2(5f, 5f);
+                Debug.Log("it is indeed on ground");
+                playermove.gravityScale = 0;
+            }
+            else
+            {
+                Debug.Log("nuh-uh on ground");
+                playermove.gravityScale = grav;
             }
             if (crouch_check == 0 && crouch_check2==0)
             {
@@ -129,17 +141,6 @@ public class Player : MonoBehaviour
                 {
                     colider.size = new Vector2(0.2f, 0.85f);
                     colider.offset = new Vector2(-0.05f, -0.078f);
-                }
-                if (isground == 1)
-                {
-                    //playermove.velocity = new Vector2(5f, 5f);
-                    Debug.Log("it is indeed on ground");
-                    playermove.gravityScale = 0;
-                }
-                else
-                {
-                    Debug.Log("nuh-uh on ground");
-                    playermove.gravityScale = grav;
                 }
                 if (jump == 1 && isground == 1)
                 {
@@ -281,15 +282,15 @@ public class Player : MonoBehaviour
                 colider.offset = new Vector2(-0.05f, -0.4f);
                 if (flag == 0)
                 {
-                    playermove.velocity = Vector2.zero;
+                    playermove.velocity = new Vector2(0f,playermove.velocity.y);
                 }
                 if (flag == 1)
                 {
-                    playermove.velocity = new Vector2(-crouch_speed, 0f);
+                    playermove.velocity = new Vector2(-crouch_speed, playermove.velocity.y);
                 }
                 if (flag == 2)
                 {
-                    playermove.velocity = new Vector2(crouch_speed, 0f);
+                    playermove.velocity = new Vector2(crouch_speed, playermove.velocity.y);
                 }
             }
         }
